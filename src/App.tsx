@@ -1,31 +1,21 @@
-import {  useState } from "react";
-import { invoke } from "@tauri-apps/api/core";
+import { useState } from "react";
 import "./App.css";
+import Copy from "./components/tabs/Copy";
+import Emoji from "./components/tabs/Emoji";
+import Symbol from "./components/tabs/Symbol";
+import { Tab } from "./types/app.types";
+import Nav from "./components/nav/Nav";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-   
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
+  const [ActiveTab, SetActiveTab] = useState<Tab>("copy");
   return (
     <main className="container">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-        className="p-2 rounded-md m-2"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit" className="bg-blue-500 p-2 rounded-md">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
+      <Nav ActiveTab={ActiveTab} SetActiveTab={SetActiveTab} />
+      <div className="content">
+        {ActiveTab === "copy" && <Copy />}
+        {ActiveTab === "emoji" && <Emoji />}
+        {ActiveTab === "symbols" && <Symbol />}
+      </div>
     </main>
   );
 }
