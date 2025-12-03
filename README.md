@@ -57,7 +57,11 @@ npm run build
 # then build native packages with the Tauri CLI
 npm run tauri build
 ```
-
+```bash
+ #Note: Currently the data for the Clipbord is stored in ./data/copy_data.json in the project root
+ this directory will automatically be implemented during build or dev command
+	
+```
 If you've never used Tauri before, you can find the official docs here: https://tauri.app
 
 ## ⚠️ Known issues / Linux troubleshooting
