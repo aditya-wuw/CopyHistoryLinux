@@ -15,7 +15,8 @@
         "title": "copyhistory",
         "width": 400,
         "height": 500,
-        "resizable": false
+        "resizable": false,
+        "alwaysOnTop": true
       }
     ]
     ,

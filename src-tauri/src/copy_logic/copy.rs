@@ -42,7 +42,7 @@ pub fn copy_history_add(content: String) -> Result<(), String> {
             Vec::new()
         }
     };
-    
+
     history.push(new_item);
 
     if history.len() > MAX_ENTRIES {
@@ -74,7 +74,6 @@ pub fn get_history() -> Result<Vec<CopyBord>, String> {
 //delete logic
 #[tauri::command]
 pub fn del_entry(id: String) -> Result<(), std::string::String> {
-    println!("id:{} is being deleted", id);
     let target_uuid: Uuid = match Uuid::parse_str(&id) {
         Ok(uuid) => uuid,
         Err(e) => return Err(format!("Invalid uuid for deletion: {}", e)),

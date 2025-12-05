@@ -6,10 +6,10 @@
   "permissions": [
     "core:default",
     "opener:default",
+    "global-shortcut:default",
     "clipboard-manager:allow-read-text",
     "clipboard-manager:allow-write-text",
     "clipboard-manager:allow-read-image",
-    "clipboard-manager:allow-write-image",
-    "global-shortcut:allow-register"
+    "clipboard-manager:allow-write-image"
   ]
 }
