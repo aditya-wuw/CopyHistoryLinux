@@ -30,19 +30,19 @@ const Copy = () => {
   }, []);
 
   return (
-    <main className="mb-10">
+    <main className="mb-20 mr-2">
       {History.length === 0 ? (
         <span className="flex justify-center">no history</span>
       ) : (
         History.map((i) => (
-          <div key={i.id} className="flex justify-between m-2 items-start">
+          <div key={i.id} className="flex justify-between m-2 items-start gap-2">
             <button
-              className="p-3 hover:bg-blue-500 w-80 wrap-break-word"
+              className="p-3 hover:bg-blue-500 w-80 wrap-break-word rounded-md mb-2"
               onClick={() => HandleClipbord(i.item)}
             >
               {i.item}
             </button>
-            <button className="bg-red-500 p-2 h-fit" onClick={() => removeHistory(i.id)}>
+            <button className="bg-red-500 p-2 h-fit rounded-md" onClick={() => removeHistory(i.id)}>
               delete
             </button>
           </div>

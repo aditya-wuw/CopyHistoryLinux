@@ -19,7 +19,10 @@
         "alwaysOnTop": true,
         "decorations": false,
         "visible": false,
-        "skipTaskbar": true
+        "skipTaskbar": true,
+        "closable": true,
+        "transparent": true,
+        "acceptFirstMouse": true
       }
     ]
     ,

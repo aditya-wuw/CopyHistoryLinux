@@ -28,6 +28,7 @@ tauri-plugin-global-shortcut = "2.3.1"
 chrono = { version = "0.4", features = ["serde"] }
 tokio = "1.48.0"
 clipboard_listener = "0.1.0"
+mouse_position = "0.1.4"
 
 [profile.dev]
 incremental = true # Compile your binary in smaller steps.

@@ -17,14 +17,16 @@ function App() {
 
   useEffect(() => {
     setupTray();
-    register_shortcuts("Control+Alt+X");
-  }, []);  
+    register_shortcuts();
+  }, []);
 
   return (
     <main className="container">
+      {/* <div data-tauri-drag-region className="h-5 cursor-grab"></div> */}
+      <div className="h-5 cursor-grab"></div>
       <div className="flex justify-between">
         <Nav ActiveTab={ActiveTab} SetActiveTab={SetActiveTab} />
-        <button className="px-5 hover:bg-red-500" onClick={HandleClose}>
+        <button className="px-3 hover:bg-red-500 mr-2" onClick={HandleClose}>
           close
         </button>
       </div>
