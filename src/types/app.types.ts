@@ -17,5 +17,6 @@ export interface shortcuts {
 export interface Emojies{
     label : string,
     type: string
-    emoji : string
+    emoji : string,
+    keywords : string[]
 }

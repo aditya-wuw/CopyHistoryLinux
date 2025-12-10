@@ -3,15 +3,11 @@ import { history } from "../../types/app.types";
 import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-import { getCurrentWindow } from "@tauri-apps/api/window";
-const appWindow = getCurrentWindow();
+import { HandleCopy } from "../../utils/utils";
+
 
 const Copy = () => {
   const [History, setHistory] = useState<history[]>([]);
-  async function HandleClipbord(item: string) {
-    await navigator.clipboard.writeText(item);
-    await appWindow.hide();
-  }
 
   async function fetchHistory() {
     //fetches all the text from the text
@@ -42,7 +38,7 @@ const Copy = () => {
           <div key={i.id} className="flex justify-between m-2 items-start">
             <div
               className="p-3 mt-2 bg-blue-500/20  hover:bg-blue-500 hover:text-white w-75 max-h-27 line-clamp-4 overflow-hidden rounded-md cursor-pointer"
-              onClick={() => HandleClipbord(i.item)}
+              onClick={() => HandleCopy(i.item)}
             >
               {i.item}
             </div>
