@@ -21,8 +21,8 @@ function App() {
       <strong className="flex justify-center">{ActiveTab.label}</strong>
       <div className="content overflow-y-scroll h-100 scroll-smooth mx-1">
         {ActiveTab.label === "copy" && <Copy />}
-        {ActiveTab.label === "emoji" && <Emoji emotes={graphicEmojiArray}/>}
-        {ActiveTab.label === "symbols" && <Emoji emotes={symbolEmoticonArray}/>}
+        {ActiveTab.label === "emoji" && <Emoji title={ActiveTab.label} emotes={graphicEmojiArray}/>}
+        {ActiveTab.label === "symbols" && <Emoji title={ActiveTab.label} emotes={symbolEmoticonArray}/>}
       </div>
     </main>
   );

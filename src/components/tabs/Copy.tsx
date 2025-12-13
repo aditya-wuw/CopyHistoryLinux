@@ -32,7 +32,7 @@ const Copy = () => {
   return (
     <main className="mr-1">
       {History.length === 0 ? (
-        <span className="flex justify-center">no history</span>
+        <span className="flex justify-center mt-3 ml-3">no history</span>
       ) : (
         History.map((i) => (
           <div key={i.id} className="flex justify-between m-2 items-start">
