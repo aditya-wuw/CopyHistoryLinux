@@ -15,6 +15,9 @@
     "clipboard-manager:allow-write-image",
     "core:app:allow-default-window-icon",
     "core:window:allow-start-dragging",
-    "core:window:allow-hide"
+    "core:window:allow-hide",
+    "autostart:allow-enable",
+    "autostart:allow-disable",
+    "autostart:allow-is-enabled"
   ]
 }

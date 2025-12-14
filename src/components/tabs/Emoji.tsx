@@ -35,9 +35,9 @@ const Emoji = ({ emotes, title }: props) => {
                   sections === "Others" ? "grid grid-cols-5 text-xs" : "grid grid-cols-7"
                 } grid-rows-1 gap-2`}
               >
-                {items.map((i) => (
+                {items.map((i, index) => (
                   <button
-                    key={i.label}
+                    key={index + i.label}
                     className="p-2 bg-blue-500/30 relative group rounded-md"
                     onClick={() => HandleCopy(i.emoji)}
                   >

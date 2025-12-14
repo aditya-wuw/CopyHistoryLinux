@@ -742,7 +742,7 @@ export const graphicEmojiArray: Emojies[] = [
     keywords: ["shake", "handshake", "deal", "meeting", "agreement"],
   },
   {
-    label: "index",
+    label: "pointing up",
     type: "Gestures",
     emoji: "☝️",
     keywords: ["index", "up", "point", "number_one", "attention"],
@@ -939,7 +939,7 @@ export const graphicEmojiArray: Emojies[] = [
   //   animals
 
   {
-    label: "cat",
+    label: "cat smile",
     type: "Faces",
     emoji: "😺",
     keywords: ["cat", "grinning", "smile", "happy"],

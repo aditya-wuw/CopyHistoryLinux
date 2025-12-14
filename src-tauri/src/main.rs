@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    copyhistory_lib::run() 
+    copyhistory_lib::run()
 }
