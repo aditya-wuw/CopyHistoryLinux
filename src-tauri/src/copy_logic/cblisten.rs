@@ -12,7 +12,6 @@ pub fn cblisten(app_handle: tauri::AppHandle) {
         async_runtime::spawn(async move {
             match ah_inner.clipboard().read_text() {
                 Ok(text) => {
-                    println!("Clipboard content -> {}", text);
                     if let Err(e) = ah_inner.emit("clipboard-changed", text.clone()) {
                         eprintln!("Emit failed: {:?}", e);
                     }

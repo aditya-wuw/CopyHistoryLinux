@@ -10,6 +10,11 @@
     "frontendDist": "../dist"
   },
   "app": {
+    "trayIcon":{
+      "iconPath": "icons/CopychanSmol.png",
+      "title": "Copytrayapp",
+      "tooltip": "show items"
+    },
     "windows": [
       {
         "title": "copyhistory",
@@ -34,12 +39,13 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "longDescription": "A lightweight clipbord manager",
     "icon": [
-      "icons/tray.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
+      "icons/CopychanSmol.png",
+      "icons/Copychan.png",
+      "icons/CopychanBig.png",
       "icons/icon.icns",
-      "icons/icon.ico"
+      "icons/CopychanIco.ico"
     ]
   }
 }

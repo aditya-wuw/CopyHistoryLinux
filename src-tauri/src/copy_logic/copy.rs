@@ -64,10 +64,10 @@ pub fn copy_history_add(content: String) -> Result<(), String> {
     Ok(())
 }
 
+
 //getting records
 #[tauri::command]
 pub fn get_history() -> Result<Vec<CopyBord>, String> {
-    println!("{}", file_data_path().display());
     let json_data = match fs::read_to_string(file_data_path()) {
         Ok(data) => data,
         Err(_) => return Ok(vec![]),
@@ -78,6 +78,7 @@ pub fn get_history() -> Result<Vec<CopyBord>, String> {
 
     Ok(history)
 }
+
 
 //delete logic
 #[tauri::command]

@@ -39,9 +39,9 @@ export async function setupTray() {
   });
 
   const tray = await TrayIcon.new({
-    icon: "icons/tray.png",
+    icon: "icons/CopychanSmol.png",
     id: "tray_app",
-    title: "trayapp",
+    title: "Copytrayapp",
     tooltip: "show items",
     menu,
     menuOnLeftClick: true,
