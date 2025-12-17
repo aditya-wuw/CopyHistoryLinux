@@ -1,6 +1,9 @@
-# CopyHistory — Clipboard history manager (Linux)
+## Copy Chan — Smol Clipboard manager :3 ![Copy Chan](src-tauri/icons/Copychan.png) 
 
-CopyHistory is a desktop clipboard/history manager for Linux built with Tauri (Rust) and React + Vite. The app is currently UNDER DEVELOPMENT — this README explains what the project is, how to run it locally, and known issues you may encounter if you plan to run it
+CopyHistory is a cross-platform desktop clipboard/history manager with a Emoji and symbols picker, built with Tauri (Rust) and React + Vite. Primarily made and optimized for linux.
+<br/>The app is currently — UNDER DEVELOPMENT and testing<br/> this README explains what the project is, how to run it locally, and known issues you may encounter if you plan to run it.
+<br/><br/>
+A release along with install guide will be made soon for Linux ( For Ubuntu based distros ).
 
 ## 🚧 Current status
 
@@ -57,38 +60,39 @@ npm run build
 # then build native packages with the Tauri CLI
 npm run tauri build
 ```
+
 ```bash
  #Note: Currently the data for the Clipbord is stored in ./data/copy_data.json in the project root
  this directory will automatically be implemented during build or dev command
-	
+
 ```
+
 If you've never used Tauri before, you can find the official docs here: https://tauri.app
 
 ## ⚠️ Known issues / Linux troubleshooting
 
-1) "Gtk-Message: Failed to load module 'canberra-gtk-module'"
+1. "Gtk-Message: Failed to load module 'canberra-gtk-module'"
 
-	- This usually means the optional sound/event module is missing. On Debian/Ubuntu you can install:
+   - This usually means the optional sound/event module is missing. On Debian/Ubuntu you can install:
 
-	```bash
-	sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
-	```
+   ```bash
+   sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
+   ```
 
-2) WebKit / Snap incompatibility (common)
+2. WebKit / Snap incompatibility (common)
 
-	- You may encounter errors like:
+   - You may encounter errors like:
 
-	  ```text
-	  /usr/lib/x86_64-linux-gnu/webkit2gtk-4.1/WebKitNetworkProcess: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
-	  ```
+     ```text
+     /usr/lib/x86_64-linux-gnu/webkit2gtk-4.1/WebKitNetworkProcess: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+     ```
 
-	- This happens when WebKitGTK picks up incompatible libraries from a Snap environment (for example, running from a snapped VS Code terminal). Try:
+   - This happens when WebKitGTK picks up incompatible libraries from a Snap environment (for example, running from a snapped VS Code terminal). Try:
 
-	```bash
-	# run the dev server from a normal system terminal (not a snapped app's terminal)
-	unset LD_LIBRARY_PATH
-	npm run tauri dev
-	```
+   ```bash
+   # run the dev server from a normal system terminal (not a snapped app's terminal)
+   unset LD_LIBRARY_PATH
+   npm run tauri dev
+   ```
 
-	- Or install WebKitGTK system packages using your distro package manager (e.g. `libwebkit2gtk-4.0-dev` / `libwebkit2gtk-4.1` on Debian/Ubuntu) so the system libs are consistent.
-
+   - Or install WebKitGTK system packages using your distro package manager (e.g. `libwebkit2gtk-4.0-dev` / `libwebkit2gtk-4.1` on Debian/Ubuntu) so the system libs are consistent.
