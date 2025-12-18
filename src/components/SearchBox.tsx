@@ -12,18 +12,19 @@ const SearchBox = ({ Searchdata, SetFiltered }: props) => {
     const terms = SearchTerms.toLowerCase().trim();
     if (!terms) return SetFiltered(Searchdata);
     const f = Searchdata.filter((i) => {
-      const EmojiMatch = i.emoji.trim().includes(terms);
-      const LabelMatch = i.label.trim().includes(terms);
-      const KeywordsMatch = i.keywords.some((k) => k.trim().includes(terms));
-      return EmojiMatch || LabelMatch || KeywordsMatch;
+      const EmojiMatch = i.emoji.toLowerCase().trim().includes(terms);
+      const LabelMatch = i.label.toLowerCase().trim().includes(terms);
+      const typeMatch = i.type.toLowerCase().includes(terms);
+      const KeywordsMatch = i.keywords.some((k) => k.toLowerCase().trim().includes(terms));
+      return KeywordsMatch || EmojiMatch || LabelMatch || typeMatch;
     });
     SetFiltered(f);
   }
-  
+
   return (
     <div>
       <div className="flex justify-between gap-3">
-        <form className="border-b dark:bg-blue-600/20 bg-blue-400/20 flex items-center w-full px-2">
+        <form className="dark:bg-blue-600/20 bg-blue-400/20 backdrop-blur-md flex items-center w-full px-2 rounded-md h-8">
           <BiSearch className="hover:scale-115" />
           <input
             placeholder="search"

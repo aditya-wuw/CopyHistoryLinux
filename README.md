@@ -6,24 +6,22 @@ Copy Chan is a cross-platform desktop clipboard/history manager with a Emoji and
 A release along with install guide will be made soon for Linux ( For Ubuntu based distros ).
 
 ## 🚧 Current status
-
-- Under development: prototype UI, Tauri backend and basic features in progress.
+- Copy chan is currently usable but still need some minor adjustments
+- Under development: extra features and settings menu.
 - Expect frequent breaking changes, refactors, and incomplete features.
 
-If you'd like to contribute, see the Contributing section below.
 
 ## 🔎 What this project aims to be
 
-CopyHistory will be a lightweight, privacy-respecting clipboard manager for Linux with features such as:
+Copy chan aims to be a lightweight, privacy-respecting clipboard manager for Linux and other platforms with features such as:
 
 - Persistent clipboard history
-- Quick search / filtering of previous clipboard entries
-- Optional system-tray/minimize-to-tray behavior
-- Keyboard shortcuts to open history and paste entries
+- Keyboard shortcuts to open history and paste entries near user's
 - Small, native desktop experience using Tauri (low overhead)
+- a section for picking Emojis and symbols 
+- system-tray/minimize-to-tray behavior
 
 ## 🧭 Tech stack
-
 - Frontend: React + TypeScript + Vite
 - Styling: Tailwind CSS
 - Desktop shell / Native: Tauri (Rust)

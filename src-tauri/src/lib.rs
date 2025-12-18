@@ -1,6 +1,7 @@
 pub mod copy_logic;
 use crate::copy_logic::{
-    cblisten::cblisten, copy::copy_history_add, copy::del_entry, copy::get_history,
+    cblisten::cblisten,
+    copy::{copy_history_add, del_entry, get_history, pin_history},
 };
 use mouse_position::mouse_position::Mouse;
 use once_cell::sync::OnceCell;
@@ -118,6 +119,7 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             copy_history_add,
             del_entry,
+            pin_history,
             get_history,
             close_programe,
             show_window,

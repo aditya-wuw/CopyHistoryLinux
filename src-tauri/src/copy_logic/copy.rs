@@ -62,7 +62,6 @@ pub fn copy_history_add(content: String) -> Result<(), String> {
     Ok(())
 }
 
-
 //getting records
 #[tauri::command]
 pub fn get_history() -> Result<Vec<CopyBord>, String> {
@@ -76,7 +75,6 @@ pub fn get_history() -> Result<Vec<CopyBord>, String> {
 
     Ok(history)
 }
-
 
 //delete logic
 #[tauri::command]
@@ -117,8 +115,15 @@ pub fn del_entry(id: String) -> Result<(), std::string::String> {
         Err(e) => return Err(format!("Failed to serialize history: {}", e)),
     };
 
-    match File::create(file_data_path()).and_then(|mut file| file.write_all(json_string.as_bytes())) {
+    match File::create(file_data_path()).and_then(|mut file| file.write_all(json_string.as_bytes()))
+    {
         Ok(_) => Ok(()),
         Err(e) => Err(format!("Failed to write updated history to file: {}", e)),
     }
+}
+
+//pin logic
+#[tauri::command]
+pub fn pin_history(id: String) {
+    println!("pinned id: {}", id);
 }

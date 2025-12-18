@@ -35,7 +35,7 @@ const Nav = ({ ActiveTab, SetActiveTab }: NavProps) => {
       </div>
       <button
         className="mb-3 hover:bg-red-500 mr-2 p-2 rounded-md"
-        onClick={() => invoke("hide_window")}
+        onClick={() => {invoke("hide_window"),SetActiveTab(items[0])}}
       >
         <CgClose />
       </button>

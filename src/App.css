@@ -15,12 +15,12 @@ html, body, #root {
 
 ::-webkit-scrollbar{
   height: 10px;
-  width: 5px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-thumb{
   background-color: rgb(135, 135, 136);
-  width: 5px;
+  width: 4px;
   border-radius: 999px;
 }
 /* All other layout / visual styles should be expressed using Tailwind utilities in the components */
