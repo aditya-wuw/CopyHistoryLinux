@@ -70,6 +70,30 @@ const Settings = () => {
           />
         </div>
       </section> */}
+      <section className="mt-5">
+        <h1 className="font-bold">ShortCuts</h1>
+        <div className="flex justify-between  items-center">
+          <span className="ml-3">show the app</span>
+          <input
+            className="p-1 bg-blue-600/30 rounded-md text-center w-35"
+            type="text"
+            disabled
+            value={"Control+Alt+S"}
+          />
+        </div>
+        <div className="flex justify-between  items-center mt-3">
+          <span className="ml-3">hide the app</span>
+          <input
+            className="p-1 bg-blue-600/30 rounded-md text-center w-35"
+            type="text"
+            disabled
+            value={"Control+Alt+X"}
+          />
+        </div>
+        <p className="text-[13px] mt-2 p-2 bg-blue-600/30 rounded-md">
+          used to quickly open up the application <br /> (will be editable soon)
+        </p>
+      </section>
       <section className="select-none flex gap-2 items-end">
         <img src="src-tauri/icons/Copychan.png" alt="copychan" draggable="false" />
         <div className="pb-6">

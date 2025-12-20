@@ -138,7 +138,6 @@ pub fn pin_history(id: Uuid) -> Result<(), String> {
     let mut history = get_history()?;
     for rec in history.iter_mut() {
         if rec.id == id {
-            println!("{:?}",rec);
             rec.pinned = true;
         }
     }

@@ -4,16 +4,18 @@ import Copy from "./components/tabs/Copy";
 import { TabItem } from "./types/app.types";
 import Nav from "./components/nav/Nav";
 import { setupTray } from "./utils/systemtray";
-import { register_shortcuts } from "./utils/globalshortcuts";
 import Emoji from "./components/tabs/Emoji";
 import { graphicEmojiArray, symbolEmoticonArray } from "./utils/emojidata";
 import Settings from "./components/tabs/Settings";
+import { register_shortcut } from "./utils/RegisterShortcut";
+
+//shortcut
 
 function App() {
   const [ActiveTab, SetActiveTab] = useState<TabItem>({ label: "copy" });
   useEffect(() => {
     setupTray();
-    register_shortcuts();
+    register_shortcut();
   }, []);
 
   return (
