@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2.9.5",
-  "productName": "copyhistory",
+  "productName": "copychan",
   "version": "0.1.0",
   "identifier": "con.Copychan",
   "build": {
@@ -28,12 +28,17 @@
     ]
     ,
     "security": {
-      "csp": null
+      "csp": "default-src 'self'; img-src 'self' asset.localhost https://asset.localhost",
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["**"]
+      }
     }
   },
   "bundle": {
     "active": true,
-    "targets": "all",
+    "targets": "deb",
+    "resources" : ["icons/*"],
     "longDescription": "A lightweight clipbord manager",
     "icon": [
       "icons/CopychanSmol.png",
