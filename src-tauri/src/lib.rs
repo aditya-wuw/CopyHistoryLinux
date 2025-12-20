@@ -1,13 +1,12 @@
 pub mod copy_logic;
 use crate::copy_logic::{
     cblisten::cblisten,
-    copy::{copy_history_add, del_entry, get_history, pin_history},
+    copy::{copy_history_add, del_entry, get_enties_limit_by_user, get_history, pin_history},
 };
 use mouse_position::mouse_position::Mouse;
 use once_cell::sync::OnceCell;
 use std::{path::PathBuf, thread};
 use tauri::{AppHandle, Manager};
-use tauri_plugin_autostart::ManagerExt;
 
 //global filepath store
 static COPY_PATH: OnceCell<PathBuf> = OnceCell::new();
@@ -62,7 +61,7 @@ fn window_pos(app: tauri::AppHandle, is_shortcut: bool) {
     if let Some(main_window) = app.get_webview_window("main") {
         if is_shortcut {
             let pos = Mouse::get_mouse_position();
-            let offset = 30;
+            let offset = 15;
             match pos {
                 Mouse::Position { x, y } => main_window
                     .set_position(tauri::PhysicalPosition::new(x + offset, y + offset))
@@ -87,10 +86,10 @@ fn window_pos(app: tauri::AppHandle, is_shortcut: bool) {
     }
 }
 
-fn autostart(app: &mut tauri::App) {
-    let startup_manager = app.autolaunch();
-    let _ = startup_manager.enable();
-}
+// fn autostart(app: &mut tauri::App) {
+//     let startup_manager = app.autolaunch();
+//     let _ = startup_manager.enable();
+// }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -113,10 +112,11 @@ pub fn run() {
                 }
             };
             listen_to_clipbord(app);
-            autostart(app);
+            // autostart(app);
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
+            get_enties_limit_by_user,
             copy_history_add,
             del_entry,
             pin_history,

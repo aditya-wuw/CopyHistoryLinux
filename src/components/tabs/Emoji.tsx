@@ -24,7 +24,7 @@ const Emoji = ({ emotes, title }: props) => {
     <main className="mt-2 mx-2 relative">
       <nav className="sticky top-0 z-10">
         <SearchBox Searchdata={emotes} SetFiltered={SetFiltered} />
-        <div className="h-3 bg-gray-800"/>
+        <div className="h-3 dark:bg-gray-800 bg-white"/>
       </nav>
       <div>
         {Filtered.length > 0 && symbol ? (

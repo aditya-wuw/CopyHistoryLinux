@@ -2,26 +2,36 @@ import { useEffect, useState } from "react";
 import { history } from "../../types/app.types";
 import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
-import { RiDeleteBin6Fill } from "react-icons/ri";
+// import { RiDeleteBin6Fill } from "react-icons/ri";
 import { HandleCopy } from "../../utils/utils";
-import { VscPinned } from "react-icons/vsc";
+// import { VscPinned } from "react-icons/vsc";
+import Records from "../Records";
 
 const Copy = () => {
   const [History, setHistory] = useState<history[]>([]);
+  const [Pinned, setPinned] = useState<history[]>([]);
 
   async function fetchHistory() {
     let history: history[] = await invoke("get_history");
-    setHistory(history.reverse());
+    const Pinned: history[] = [];
+    const notPinned: history[] = [];
+    for (const rec of history) {
+      rec.pinned ? Pinned.push(rec) : notPinned.push(rec);
+    }
+    setPinned(Pinned);
+    setHistory(notPinned);
   }
 
   async function removeHistory(id: string) {
-    setHistory(History.filter((prev) => prev.id != id));
     await invoke("del_entry", { id: id });
+    fetchHistory();
   }
 
   async function PinHistory(id: string) {
     await invoke("pin_history", { id: id });
+    fetchHistory();
   }
+
   listen("clipboard-changed", async () => {
     fetchHistory();
   });
@@ -32,28 +42,36 @@ const Copy = () => {
 
   return (
     <main className="mr-1">
-      {History.length === 0 ? (
-        <span className="flex justify-center mt-3 ml-3">no history</span>
-      ) : (
-        History.map((i) => (
-          <div key={i.id} className="flex justify-between m-2 items-start">
-            <div
-              className="p-3 mt-2 bg-blue-500/20  hover:bg-blue-500 hover:text-white w-75 max-h-27 line-clamp-4 overflow-hidden rounded-md cursor-pointer"
-              onClick={() => HandleCopy(i.item)}
-            >
-              {i.item}
-            </div>
-            <div className="flex gap-1 mt-2">
-              <button className="h-fit rounded-md" onClick={() => PinHistory(i.id)}>
-                <VscPinned size={i.pinned ? 25 : 20} className="hover:text-red-500 hover:scale-130" />
-              </button>
-              <button className="h-fit rounded-md" onClick={() => removeHistory(i.id)}>
-                <RiDeleteBin6Fill size={17} className="hover:text-red-500 hover:scale-130" />
-              </button>
-            </div>
-          </div>
-        ))
+      {Pinned.length > 0 && (
+        <div>
+          <h1 className="mx-3">Pinned</h1>
+          {Pinned.map((i, index) => (
+            <Records
+              key={index}
+              i={i}
+              HandleCopy={HandleCopy}
+              PinHistory={PinHistory}
+              removeHistory={removeHistory}
+            />
+          ))}
+          <h1 className="flex justify-center border-b mx-2 pb-4" />
+        </div>
       )}
+      <div className="mt-5">
+        {History.length !== 0 ? (
+          History.map((i, index) => (
+            <Records
+              key={index}
+              i={i}
+              HandleCopy={HandleCopy}
+              removeHistory={removeHistory}
+              PinHistory={PinHistory}
+            />
+          ))
+        ) : (
+          <span className="flex justify-center mt-3 ml-3">may be copy something :3</span>
+        )}
+      </div>
     </main>
   );
 };
