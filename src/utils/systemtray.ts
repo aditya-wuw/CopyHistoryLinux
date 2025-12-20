@@ -1,6 +1,7 @@
 import { TrayIcon } from "@tauri-apps/api/tray";
 import { Menu } from "@tauri-apps/api/menu";
 import { invoke } from "@tauri-apps/api/core";
+import { resolveResource } from "@tauri-apps/api/path";
 
 export async function setupTray() {
   const menu = await Menu.new({
@@ -21,9 +22,9 @@ export async function setupTray() {
       },
     ],
   });
-
+  const resourcePath = await resolveResource("icons/CopychanSmol.png");
   const tray = await TrayIcon.new({
-    icon: "icons/CopychanSmol.png",
+    icon: resourcePath,
     id: "tray_app",
     title: "Copytrayapp",
     tooltip: "show items",

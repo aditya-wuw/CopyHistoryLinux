@@ -94,23 +94,27 @@ const Settings = () => {
           used to quickly open up the application <br /> (will be editable soon)
         </p>
       </section>
-      <section className="select-none flex gap-2 items-end">
-        <img src="src-tauri/icons/Copychan.png" alt="copychan" draggable="false" />
-        <div className="pb-6">
-          <h1>Support me</h1>
-          <span className="flex gap-2">
-            <a href="https://github.com/aditya-wuw/Copy-Chan" target="_blank">
-              <GrGithub size={20} />
-            </a>
-            <a href="https://www.youtube.com/@NoFaceIsDev" target="_blank">
-              <BsYoutube size={20} />
-            </a>
-            <a href="https://x.com/GenzaGenza" target="_blank">
-              <BsTwitter size={20} />
-            </a>
-          </span>
-        </div>
-      </section>
+
+      <footer>
+        <section className="select-none flex gap-2 items-end">
+          <img src={"/Copychan.png"} alt="copychan" draggable="false" />
+          <div className="pb-6">
+            <h1 className="text-[13px] text-gray-300">test build 1.0.2</h1>
+            <h1>Support me</h1>
+            <span className="flex gap-2">
+              <a href="https://github.com/aditya-wuw/Copy-Chan" target="_blank">
+                <GrGithub size={20} className="hover:text-blue-300"/>
+              </a>
+              <a href="https://www.youtube.com/@NoFaceIsDev" target="_blank">
+                <BsYoutube size={20} className="hover:text-red-500"/>
+              </a>
+              <a href="https://x.com/GenzaGenza" target="_blank">
+                <BsTwitter size={20} className="hover:text-blue-500"/>
+              </a>
+            </span>
+          </div>
+        </section>
+      </footer>
     </main>
   );
 };
