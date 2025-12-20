@@ -1,15 +1,16 @@
+use crate::COPY_PATH;
 use serde::{Deserialize, Serialize};
+use serde_json::Number;
 use std::fs::{self, File};
 use std::io::{Read, Write};
 use std::path::PathBuf;
 use uuid::Uuid;
-
-use crate::COPY_PATH;
-
 #[derive(Deserialize, Serialize, Debug)]
+
 pub struct CopyBord {
     id: Uuid,
     item: String,
+    pinned: bool,
 }
 
 const MAX_ENTRIES: usize = 10;
@@ -18,12 +19,24 @@ fn file_data_path() -> &'static PathBuf {
     COPY_PATH.get().expect("COPY_PATH not initialized")
 }
 
+fn write_file(json: String) {
+    let mut file = File::create(file_data_path()).expect("Failed to create file");
+    file.write_all(json.as_bytes())
+        .expect("Failed to write to file");
+}
+
+#[tauri::command]
+pub fn get_enties_limit_by_user(limit: Number) {
+    println!("limit set to{}", limit);
+}
+
 #[tauri::command]
 pub fn copy_history_add(content: String) -> Result<(), String> {
     // generate structure
     let new_item = CopyBord {
         id: Uuid::new_v4(),
         item: content.clone(),
+        pinned: false,
     };
     // adds the directory if it's missing on the project root
     if let Some(parent) = std::path::Path::new(file_data_path()).parent() {
@@ -48,7 +61,7 @@ pub fn copy_history_add(content: String) -> Result<(), String> {
         }
     };
 
-    history.push(new_item);
+    history.insert(0, new_item);
 
     if history.len() > MAX_ENTRIES {
         let remove_count = history.len() - MAX_ENTRIES;
@@ -56,9 +69,7 @@ pub fn copy_history_add(content: String) -> Result<(), String> {
     }
 
     let json_string = serde_json::to_string_pretty(&history).expect("Failed to serialize to JSON");
-    let mut file = File::create(file_data_path()).expect("Failed to create file");
-    file.write_all(json_string.as_bytes())
-        .expect("Failed to write to file");
+    write_file(json_string);
     Ok(())
 }
 
@@ -69,7 +80,6 @@ pub fn get_history() -> Result<Vec<CopyBord>, String> {
         Ok(data) => data,
         Err(_) => return Ok(vec![]),
     };
-    // Parse JSON
     let history: Vec<CopyBord> =
         serde_json::from_str(&json_data).map_err(|e| format!("JSON read failed: {}", e))?;
 
@@ -124,6 +134,15 @@ pub fn del_entry(id: String) -> Result<(), std::string::String> {
 
 //pin logic
 #[tauri::command]
-pub fn pin_history(id: String) {
+pub fn pin_history(id: Uuid) -> Result<(), String> {
+    let mut history = get_history()?;
+    for rec in history.iter_mut() {
+        if rec.id == id {
+            rec.pinned = true;
+        }
+    }
+    let json_file = serde_json::to_string_pretty(&history).map_err(|e| e.to_string())?;
+    write_file(json_file);
     println!("pinned id: {}", id);
+    Ok(())
 }

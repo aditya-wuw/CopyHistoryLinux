@@ -5,10 +5,13 @@
   "windows": ["main"],
   "permissions": [
     "core:default",
+    "core:window:allow-theme",
+    "core:window:allow-set-theme",
     "opener:default",
     "global-shortcut:default",
     "global-shortcut:allow-register",
     "global-shortcut:allow-unregister",
+    "global-shortcut:allow-unregister-all",
     "clipboard-manager:allow-read-text",
     "clipboard-manager:allow-write-text",
     "clipboard-manager:allow-read-image",
