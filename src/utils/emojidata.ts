@@ -110,11 +110,60 @@ export const symbolEmoticonArray: Emojies[] = [
     emoji: "₳",
     keywords: ["sucre", "ecuador", "historic", "money"],
   },
+  // symbols
   {
-    label: "cash",
-    type: "Currency",
+    label: "copyright",
+    type: "Symbols",
+    emoji: "©",
+    keywords: ["copyright", "legal", "owner", "license", "©"],
+  },
+  {
+    label: "registered",
+    type: "Symbols",
+    emoji: "®",
+    keywords: ["registered", "trademark", "brand", "legal", "®"],
+  },
+  {
+    label: "trademark",
+    type: "Symbols",
+    emoji: "™",
+    keywords: ["trademark", "tm", "brand", "legal", "™"],
+  },
+  {
+    label: "check mark",
+    type: "Symbols",
+    emoji: "✓",
+    keywords: ["check", "done", "yes", "correct", "verify", "✓"],
+  },
+  {
+    label: "bullet point",
+    type: "Symbols",
+    emoji: "•",
+    keywords: ["bullet", "point", "dot", "list", "•"],
+  },
+  {
+    label: "degree",
+    type: "Symbols",
+    emoji: "°",
+    keywords: ["degree", "temperature", "weather", "angle", "°"],
+  },
+  {
+    label: "infinity",
+    type: "Symbols",
+    emoji: "∞",
+    keywords: ["infinity", "forever", "loop", "math", "∞"],
+  },
+  {
+    label: "section",
+    type: "Symbols",
+    emoji: "§",
+    keywords: ["section", "paragraph", "legal", "law", "§"],
+  },
+  {
+    label: "currency generic",
+    type: "Symbols",
     emoji: "¤",
-    keywords: ["generic", "currency", "cash", "money"],
+    keywords: ["currency", "money", "symbol", "price", "¤"],
   },
   // --- Arithmetic / Math ---
   {

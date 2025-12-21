@@ -40,13 +40,13 @@ const Settings = () => {
   }, []);
 
   return (
-    <main className="px-2 pl-5">
+    <main className="px-3">
       <section>
         <div className="flex justify-between items-center">
           <strong>Enable StartUp</strong>
           <SliderButton value={isStartUpEnabled} SetValue={SetStartUp} DoSomthing={HandleStartUp} />
         </div>
-        <p className="text-[13px] mt-2 p-2 bg-blue-600/30 rounded-md">
+        <p className="text-[13px] mt-5 p-2 bg-blue-600/30 rounded-md">
           Automatically launches the application as soon as your operating system boots up
         </p>
       </section>
@@ -55,7 +55,7 @@ const Settings = () => {
           <strong>Enable Dark mode</strong>
           <SliderButton value={darkmode} SetValue={setdarkmode} DoSomthing={EnableDarkMode} />
         </div>
-        <p className="text-[13px] mt-2 p-2 bg-blue-600/30 rounded-md">
+        <p className="text-[13px] mt-5 p-2 bg-blue-600/30 rounded-md">
           Makes the theme darker and less painful for your eyes to witness. Peak
         </p>
       </section>
@@ -70,12 +70,12 @@ const Settings = () => {
           />
         </div>
       </section> */}
-      <section className="mt-5">
+      <section className="mt-5 mb-5">
         <h1 className="font-bold">ShortCuts</h1>
         <div className="flex justify-between  items-center">
           <span className="ml-3">show the app</span>
           <input
-            className="p-1 bg-blue-600/30 rounded-md text-center w-35"
+            className="p-1 bg-blue-600/30 rounded-md text-center w-30"
             type="text"
             disabled
             value={"Control+Alt+S"}
@@ -84,7 +84,7 @@ const Settings = () => {
         <div className="flex justify-between  items-center mt-3">
           <span className="ml-3">hide the app</span>
           <input
-            className="p-1 bg-blue-600/30 rounded-md text-center w-35"
+            className="p-1 bg-blue-600/30 rounded-md text-center w-30"
             type="text"
             disabled
             value={"Control+Alt+X"}
@@ -99,7 +99,7 @@ const Settings = () => {
         <section className="select-none flex gap-2 items-end">
           <img src={"/Copychan.png"} alt="copychan" draggable="false" />
           <div className="pb-6">
-            <h1 className="text-[13px] text-gray-300">test build 1.0.2</h1>
+            <h1 className="text-[13px] text-gray-300">test build 1.0.3</h1>
             <h1>Support me</h1>
             <span className="flex gap-2">
               <a href="https://github.com/aditya-wuw/Copy-Chan" target="_blank">

@@ -21,8 +21,9 @@ const Records = ({ i, HandleCopy, PinHistory, removeHistory }: props) => {
         <button className="h-fit rounded-md" onClick={() => PinHistory(i.id)}>
           <VscPinned
             size={i.pinned ? 25 : 20}
-            fill={i.pinned ? "red" : "white"}
-            className="hover:text-red-500 hover:scale-130"
+            className={`${
+              !i.pinned ? "hover:fill-yellow-400 " : "hover:fill-red-500 fill-amber-300"
+            } hover:scale-130 `}
           />
         </button>
         <button className="h-fit rounded-md" onClick={() => removeHistory(i.id)}>
