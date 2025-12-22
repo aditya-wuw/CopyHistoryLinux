@@ -1,7 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2.9.5",
   "productName": "copychan",
-  "version": "0.1.0",
+  "version": "0.0.3",
+  
   "identifier": "con.Copychan",
   "build": {
     "beforeDevCommand": "npm run dev",
@@ -23,7 +24,8 @@
         "closable": true,
         "transparent": true,
         "acceptFirstMouse": true,
-        "contentProtected": true
+        "contentProtected": true,
+        "theme":"Light"
       }
     ]
     ,

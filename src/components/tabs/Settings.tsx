@@ -4,6 +4,8 @@ import { SliderButton } from "../SliderButton";
 import { GrGithub } from "react-icons/gr";
 import { BsTwitter, BsYoutube } from "react-icons/bs";
 import { currentWindow } from "../../utils/utils";
+import { getVersion } from "@tauri-apps/api/app";
+const AppVersion = await getVersion();
 // import { invoke } from "@tauri-apps/api/core";
 
 const Settings = () => {
@@ -73,7 +75,7 @@ const Settings = () => {
       <section className="mt-5 mb-5">
         <h1 className="font-bold">ShortCuts</h1>
         <div className="flex justify-between  items-center">
-          <span className="ml-3">show the app</span>
+          <span className="ml-3">Show the app</span>
           <input
             className="p-1 bg-blue-600/30 rounded-md text-center w-30"
             type="text"
@@ -82,7 +84,7 @@ const Settings = () => {
           />
         </div>
         <div className="flex justify-between  items-center mt-3">
-          <span className="ml-3">hide the app</span>
+          <span className="ml-3">Hide the app</span>
           <input
             className="p-1 bg-blue-600/30 rounded-md text-center w-30"
             type="text"
@@ -91,7 +93,7 @@ const Settings = () => {
           />
         </div>
         <p className="text-[13px] mt-2 p-2 bg-blue-600/30 rounded-md">
-          used to quickly open up the application <br /> (will be editable soon)
+          Used to quickly open up the application <br /> (will be editable soon)
         </p>
       </section>
 
@@ -99,17 +101,17 @@ const Settings = () => {
         <section className="select-none flex gap-2 items-end">
           <img src={"/Copychan.png"} alt="copychan" draggable="false" />
           <div className="pb-6">
-            <h1 className="text-[13px] text-gray-300">test build 1.0.3</h1>
+            <h1 className="text-[13px] dark:text-gray-300 text-gray-700">test build {AppVersion}</h1>
             <h1>Support me</h1>
             <span className="flex gap-2">
               <a href="https://github.com/aditya-wuw/Copy-Chan" target="_blank">
-                <GrGithub size={20} className="hover:text-blue-300"/>
+                <GrGithub size={20} className="hover:text-blue-300" />
               </a>
               <a href="https://www.youtube.com/@NoFaceIsDev" target="_blank">
-                <BsYoutube size={20} className="hover:text-red-500"/>
+                <BsYoutube size={20} className="hover:text-red-500" />
               </a>
               <a href="https://x.com/GenzaGenza" target="_blank">
-                <BsTwitter size={20} className="hover:text-blue-500"/>
+                <BsTwitter size={20} className="hover:text-blue-500" />
               </a>
             </span>
           </div>
