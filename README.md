@@ -1,15 +1,18 @@
-# Copy Chan — Smol Clipboard manager :3 <br>![Copy Chan](src-tauri/icons/Copychan.png) 
+# Copy Chan — Smol Clipboard manager :3 <br>![Copy Chan](src-tauri/icons/Copychan.png)
 
 Copy Chan is a cross-platform desktop clipboard/history manager with a Emoji and symbols picker, built with Tauri (Rust) and React + Vite. Primarily made and optimized for linux.
 <br/>The app is currently — UNDER DEVELOPMENT and testing<br/> this README explains what the project is, how to run it locally, and known issues you may encounter if you plan to run it.
 <br/><br/>
 A release along with install guide will be made soon for Linux ( For Ubuntu based distros ).
 
-## 🚧 Current status
-- Copy chan is currently usable but still need some minor adjustments
-- Under development: extra features and settings menu.
-- Expect frequent breaking changes, refactors, and incomplete features.
+## 🚧 Current status: Maintenance Only
 
+This project is open-source for transparency and personal use. While the code is public, I am not currently accepting pull requests or feature requests. If you would like to make changes, please feel free to fork the repository. <br/>While this project is primarily for personal use, bug reports are welcome. If you encounter an issue, feel free to open an issue on GitHub, though please note that updates may be infrequent.
+
+##
+- Copy chan is currently usable
+- Under development: extra features.
+- Expect frequent breaking changes, refactors, and incomplete features.
 
 ## 🔎 What this project aims to be
 
@@ -18,10 +21,11 @@ Copy chan aims to be a lightweight, privacy-respecting clipboard manager for Lin
 - Persistent clipboard history
 - Keyboard shortcuts to open history and paste entries near user's
 - Small, native desktop experience using Tauri (low overhead)
-- a section for picking Emojis and symbols 
+- a section for picking Emojis and symbols
 - system-tray/minimize-to-tray behavior
 
 ## 🧭 Tech stack
+
 - Frontend: React + TypeScript + Vite
 - Styling: Tailwind CSS
 - Desktop shell / Native: Tauri (Rust)
